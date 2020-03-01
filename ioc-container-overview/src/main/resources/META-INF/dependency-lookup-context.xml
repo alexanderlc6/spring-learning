@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 最基本的命名空间定义和空间装载 -->
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+        xmlns:context="http://www.springframework.org/schema/context">
+
+    <bean id="simpleDateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="yyyy年MM月dd hh时mm分ss秒"/>
+    </bean>
+
+    <bean id="retDate" class="java.util.Date"/>
+
+    <bean id="user" class="com.sp.test.ioc.domain.User">
+    <property name="id" value="15"/>
+        <property name="name" value="Alex"/>
+        <property name="address" value="Shanghai Pudong"/>
+        <property name="city" value="HANGZHOU"/>
+        <property name="configFileLocation" value="classpath:/META-INF/user-config.properties"/>
+    </bean>
+
+    <bean id="superUser" class="com.sp.test.ioc.domain.SuperUser" parent="user" primary="true">
+        <property name="email" value="test@123.com"/>
+    </bean>
+
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user"/>
+    </bean>
+
+    <!--<context:annotation-config/>-->
+
+</beans>

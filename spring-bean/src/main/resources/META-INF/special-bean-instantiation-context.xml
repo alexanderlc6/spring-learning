@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 最基本的命名空间定义和空间装载 -->
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+        xmlns:context="http://www.springframework.org/schema/context">
+
+    <bean id="userFactoryServiceLoader" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
+        <property name="serviceType" value="com.sp.test.spring.bean.factory.UserFactory"/>
+    </bean>
+
+</beans>
