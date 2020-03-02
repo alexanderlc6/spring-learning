@@ -21,7 +21,7 @@ public class DependencyLookupDemo {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-lookup-context.xml");
         lookupInRealTime(beanFactory);
         lookupInLazy(beanFactory);
-    
+
         lookupSimpleObjectByType(beanFactory);
         lookupCollectionObjectByType(beanFactory);
         lookupByAnnotationType(beanFactory);
