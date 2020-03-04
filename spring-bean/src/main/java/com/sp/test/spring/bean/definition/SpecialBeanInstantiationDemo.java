@@ -37,7 +37,7 @@ public class SpecialBeanInstantiationDemo {
         UserFactory userFactory = beanFactory.createBean(DefaultUserFactory.class);
         userFactory.createUser();
 
-        //方式4:BeanDefinitionRegistry,见AnnotationBeanDefinitionDemo示例
+        //方式4:BeanDefinitionRegistry,见AnnotationBeanDefinitionD1emo示例
     }
 
     public static void demoServiceLoader(){
