@@ -21,6 +21,13 @@
             <artifactId>spring-beans</artifactId>
             <version>5.1.6.RELEASE</version>
         </dependency>
+
+        <!--JSR 330-API-->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
     </dependencies>
 
 </project>

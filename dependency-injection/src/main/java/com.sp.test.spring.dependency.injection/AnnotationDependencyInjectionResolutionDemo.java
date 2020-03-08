@@ -9,6 +9,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Lazy;
 
+import javax.inject.Inject;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
@@ -38,6 +39,9 @@ public class AnnotationDependencyInjectionResolutionDemo {
     @Autowired
     private Optional<User> userOptional;        //superUser
 
+    @Inject     //和@Autowired注入效果相同,BeanPostProcessor均可以处理
+    private User injectedUser;
+
 
     public static void main(String[] args) {
         //创建BeanFactory容器
@@ -57,7 +61,8 @@ public class AnnotationDependencyInjectionResolutionDemo {
         //依赖查找QualifierAnnotationDependencyInjectionDemo Bean
         AnnotationDependencyInjectionResolutionDemo demo = applicationContext.getBean(AnnotationDependencyInjectionResolutionDemo.class);
         System.out.println("demo user:" + demo.user);                           //输出SuperUser Bean
-        System.out.println("demo users:" + demo.users);                         //输出SuperUser,User Bean
+        System.out.println("demo injectedUser:" + demo.injectedUser);           //输出SuperUser,User Bean
+
         System.out.println("demo Optional<User>:" + demo.userOptional);         //输出SuperUserBean
         System.out.println("demo lazyUser:" + demo.lazyUser);
 
