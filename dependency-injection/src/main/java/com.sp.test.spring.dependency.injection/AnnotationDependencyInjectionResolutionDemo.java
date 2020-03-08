@@ -1,12 +1,17 @@
 package com.sp.test.spring.dependency.injection;
 
 import com.sp.test.ioc.domain.User;
+import com.sp.test.spring.dependency.injection.annotation.InjectedUser;
+import com.sp.test.spring.dependency.injection.annotation.MyAutowired;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
 import javax.inject.Inject;
@@ -20,6 +25,7 @@ import java.util.Set;
  * Created by AlexLc on 2020/3/3.
  * @see Qualifier
  */
+@Configuration
 public class AnnotationDependencyInjectionResolutionDemo {
     @Autowired  //依赖查找-延迟查找
     @Lazy
@@ -36,12 +42,22 @@ public class AnnotationDependencyInjectionResolutionDemo {
     @Autowired  //集合类型的依赖注入
     private Map<String, User> users; //user,superUser
 
-    @Autowired
+    @MyAutowired
     private Optional<User> userOptional;        //superUser
 
     @Inject     //和@Autowired注入效果相同,BeanPostProcessor均可以处理
     private User injectedUser;
 
+    @InjectedUser
+    private User myInjectedUser;
+
+    @Bean(name = "InjectedUserAnnotationBeanPostProcessor")
+    public AutowiredAnnotationBeanPostProcessor beanPostProcessor(){
+        AutowiredAnnotationBeanPostProcessor beanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
+        //替换原有的注解处理，使用新注解@InjectedUser
+        beanPostProcessor.setAutowiredAnnotationType(InjectedUser.class);
+        return beanPostProcessor;
+    }
 
     public static void main(String[] args) {
         //创建BeanFactory容器
@@ -64,7 +80,7 @@ public class AnnotationDependencyInjectionResolutionDemo {
         System.out.println("demo injectedUser:" + demo.injectedUser);           //输出SuperUser,User Bean
 
         System.out.println("demo Optional<User>:" + demo.userOptional);         //输出SuperUserBean
-        System.out.println("demo lazyUser:" + demo.lazyUser);
+        System.out.println("demo myInjectedUser:" + demo.myInjectedUser);       //输出SuperUserBean
 
         applicationContext.close();
     }
