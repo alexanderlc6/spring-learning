@@ -9,10 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.*;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import javax.inject.Inject;
 import java.util.Collection;
@@ -23,6 +22,7 @@ import java.util.Set;
 /**
  * 注解驱动的依赖注入处理过程Demo
  * Created by AlexLc on 2020/3/3.
+ * 参考：https://blog.csdn.net/f641385712/article/details/89737791说明BeanPostProcessor机制
  * @see Qualifier
  */
 @Configuration
@@ -52,6 +52,8 @@ public class AnnotationDependencyInjectionResolutionDemo {
     private User myInjectedUser;
 
     @Bean(name = "InjectedUserAnnotationBeanPostProcessor")
+    @Scope
+    @Order(Ordered.LOWEST_PRECEDENCE - 3)
     public AutowiredAnnotationBeanPostProcessor beanPostProcessor(){
         AutowiredAnnotationBeanPostProcessor beanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
         //替换原有的注解处理，使用新注解@InjectedUser
