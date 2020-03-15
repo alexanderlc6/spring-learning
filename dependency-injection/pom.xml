@@ -15,12 +15,13 @@
             <groupId>${groupId}</groupId>
             <artifactId>ioc-container-overview</artifactId>
             <version>${version}</version>
+            <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.1.6.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-beans</artifactId>-->
+            <!--<version>5.1.6.RELEASE</version>-->
+        <!--</dependency>-->
 
         <!--JSR 330-API-->
         <dependency>
