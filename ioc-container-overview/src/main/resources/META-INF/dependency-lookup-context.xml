@@ -14,6 +14,10 @@
 
     <bean id="retDate" class="java.util.Date"/>
 
+    <!--<context:annotation-config/>-->
+    <!---->
+    <!--<context:component-scan base-package="org.acme"/>-->
+
     <bean id="user" class="com.sp.test.ioc.domain.User">
     <property name="id" value="15"/>
         <property name="name" value="Alex"/>

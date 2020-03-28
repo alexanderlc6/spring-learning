@@ -12,11 +12,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 import javax.inject.Inject;
-import java.lang.annotation.Annotation;
 import java.util.*;
-
-import static java.util.Arrays.asList;
-import static org.springframework.context.annotation.AnnotationConfigUtils.AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME;
 
 /**
  * 注解驱动的依赖注入处理过程Demo
