@@ -9,7 +9,8 @@
         <module>dependency-lookup</module>
         <module>dependency-injection</module>
 		<module>dependency-source</module>
-	</modules>
+        <module>bean-scope</module>
+    </modules>
     <!--<parent>-->
 		<!--<groupId>org.springframework.boot</groupId>-->
 		<!--<artifactId>spring-boot-starter-parent</artifactId>-->

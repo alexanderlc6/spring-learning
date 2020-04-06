@@ -1,16 +1,18 @@
 package com.sp.test.ioc.domain;
 
 import com.sp.test.ioc.enums.City;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by AlexLc on 2020/1/25.
  */
-public class User {
-
+public class User implements BeanNameAware {
     private Long id;
 
     private String name;
@@ -24,6 +26,12 @@ public class User {
     private List<City> lifeCities;
 
     private Resource configFileLocation;
+
+    /**
+     * 当前Bean的名称
+     * transient--不需要反序列化
+     */
+    private transient String beanName;
 
     public City getCity() {
         return city;
@@ -115,5 +123,20 @@ public class User {
         user.setId(12L);
         user.setName("qwwqqvv");
         return user;
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("User Bean [" + beanName + "]初始化...");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        System.out.println("User Bean [" + beanName + "]销毁中...");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
     }
 }
