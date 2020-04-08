@@ -1,4 +1,4 @@
-package com.sp.test.spring.bean.scope.web.controller;
+package com.sp.test.springbeans.scope.web.controller;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

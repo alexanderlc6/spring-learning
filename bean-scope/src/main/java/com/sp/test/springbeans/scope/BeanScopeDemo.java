@@ -1,10 +1,8 @@
-package com.sp.test.spring.bean.scope;
+package com.sp.test.springbeans.scope;
 
 
 import com.sp.test.ioc.domain.User;
-import org.omg.CORBA.UShortSeqHelper;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
