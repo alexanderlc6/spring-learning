@@ -36,6 +36,7 @@
             <!--<artifactId>spring-webmvc</artifactId>-->
             <!--<version>5.1.6.RELEASE</version>-->
         <!--</dependency>-->
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-commons</artifactId>
@@ -49,16 +50,6 @@
             <version>2.2.0.RELEASE</version>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-web</artifactId>-->
-            <!--<version>5.1.6.RELEASE</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-webmvc</artifactId>-->
-            <!--<version>5.1.6.RELEASE</version>-->
-        <!--</dependency>-->
     </dependencies>
 
     <pluginRepositories>

@@ -76,6 +76,11 @@ public class BeanScopeDemo implements DisposableBean{
         applicationContext.addBeanFactoryPostProcessor(beanFactory -> {
             beanFactory.addBeanPostProcessor(new BeanPostProcessor() {
                 @Override
+                public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
+                    return null;
+                }
+
+                @Override
                 public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
                     System.out.printf("%s Bean名称：%s在初始化后回调...%n", bean.getClass().getName(), beanName);
                     return bean;
@@ -91,7 +96,7 @@ public class BeanScopeDemo implements DisposableBean{
         //Prototype Bean无论依赖查找还是依赖注入均为新生成的对象
 
         //结论二
-        //如果依赖注入集合类型对象，Singleton Beanhe和Prototype Bean均会存在一个
+        //如果依赖注入集合类型对象，Singleton Bean和Prototype Bean均会存在一个
         //Prototype Bean有别于其他地方的依赖注入
 
         //结论三
