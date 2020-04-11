@@ -10,8 +10,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="<spring:theme code='stylesheet'/>" type="text/css"/>
-</headj
-<body style="background=<spring:theme code='background'/>">
-
+</head>
+<body>
+    \${user.name} : ${user.name}
 </body>
 </html>
